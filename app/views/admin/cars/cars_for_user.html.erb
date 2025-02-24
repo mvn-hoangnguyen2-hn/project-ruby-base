@@ -1,0 +1,39 @@
+<h1>All Cars</h1>
+
+<table border="1" cellpadding="10">
+  <thead>
+  <tr>
+    <th>Make</th>
+    <th>Model</th>
+    <th>Color</th>
+    <th>License Plate</th>
+    <th>Status</th>
+    <th>Actions</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @cars.each do |car| %>
+    <tr>
+      <td><%= car.make %></td>
+      <td><%= car.model %></td>
+      <td><%= car.color %></td>
+      <td><%= car.license_plate %></td>
+      <td>
+        <% if car.status == "approved" %>
+          <span style="color: green;">Approved</span>
+        <% elsif car.status == "rejected" %>
+          <span style="color: red;">Rejected</span>
+        <% else %>
+          <span style="color: orange;">Pending</span>
+        <% end %>
+      </td>
+      <td>
+        <% if car.status == "pending" %>
+          <%= link_to 'Approve', admin_approve_admin_car_path(car.id) %> |
+          <%= link_to 'Reject', admin_reject_admin_car_path(car.id) %>
+        <% end %>
+      </td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>

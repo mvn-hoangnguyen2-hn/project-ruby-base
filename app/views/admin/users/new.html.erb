@@ -1,0 +1,109 @@
+<h1>Create user</h1>
+
+<%= form_with(model: @user, url: admin_users_path, method: :post, local: true) do |form| %>
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+    <% if @user.errors[:name].any? %>
+      <div class="text-danger">
+        <% @user.errors[:name].each do |error| %>
+          <div><%= error %></div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="field">
+    <%= form.label :email %>
+    <%= form.email_field :email %>
+    <% if @user.errors[:email].any? %>
+      <div class="text-danger">
+        <% @user.errors[:email].each do |error| %>
+          <div><%= error %></div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.label :password %>
+    <%= form.password_field :password %>
+    <% if @user.errors[:password].any? %>
+      <div class="text-danger">
+        <% @user.errors[:password].each do |error| %>
+          <div><%= error %></div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.label :password_confirmation %>
+    <%= form.password_field :password_confirmation %>
+    <% if @user.errors[:password_confirmation].any? %>
+      <div class="text-danger">
+        <% @user.errors[:password_confirmation].each do |error| %>
+          <div><%= error %></div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="field">
+    <%= form.label :age %>
+    <%= form.number_field :age %>
+  </div>
+
+  <div class="field">
+    <%= form.label :phone %>
+    <%= form.text_field :phone %>
+  </div>
+
+  <!-- Thông tin Xe 1 -->
+  <h3>Car 1</h3>
+  <div class="field">
+    <%= form.label :car_type, "Car Type" %>
+    <%= form.text_field :car_type, name: "car1[make]" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :brand, "Brand" %>
+    <%= form.text_field :brand, name: "car1[model]" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :color, "Color" %>
+    <%= form.text_field :color, name: "car1[color]" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :license_plate, "License Plate" %>
+    <%= form.text_field :license_plate, name: "car1[license_plate]" %>
+  </div>
+
+  <!-- Thông tin Xe 2 -->
+  <h3>Car 2</h3>
+  <div class="field">
+    <%= form.label :car_type, "Car Type" %>
+    <%= form.text_field :car_type, name: "car2[make]" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :brand, "Brand" %>
+    <%= form.text_field :brand, name: "car2[model]" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :color, "Color" %>
+    <%= form.text_field :color, name: "car2[color]" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :license_plate, "License Plate" %>
+    <%= form.text_field :license_plate, name: "car2[license_plate]" %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit 'Create User' %>
+  </div>
+<% end %>
