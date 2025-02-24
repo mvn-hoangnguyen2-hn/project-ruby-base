@@ -1,0 +1,40 @@
+<h1>Edit User</h1>
+
+<%= form_with model: @user, url: admin_user_path(@user), method: :patch, local: true do |form| %>
+  <% if @user.errors.any? %>
+    <div class="alert alert-danger">
+      <h4>There were some errors:</h4>
+      <ul>
+        <% @user.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name, class: "form-control" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :email %>
+    <%= form.text_field :email, class: "form-control" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :age %>
+    <%= form.number_field :age, class: "form-control" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :phone %>
+    <%= form.text_field :phone, class: "form-control" %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit "Update User", class: "btn btn-primary" %>
+  </div>
+<% end %>
+
+<%= link_to 'Back to User List', admin_users_path, class: "btn btn-secondary" %>

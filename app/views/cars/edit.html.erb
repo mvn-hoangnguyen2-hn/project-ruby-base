@@ -1,0 +1,23 @@
+<h1>Edit Car</h1>
+  <%= form_with model: @car do |f| %>
+    <div>
+      <%= f.label :make %>
+      <%= f.text_field :make %>
+    </div>
+    <div>
+      <%= f.label :model %>
+      <%= f.text_field :model %>
+    </div>
+    <div>
+      <%= f.label :color %>
+      <%= f.text_field :color %>
+    </div>
+    <div>
+      <%= f.label :license_plate %>
+      <%= f.text_field :license_plate %>
+    </div>
+    <div>
+      <%= f.submit 'Update Car' %>
+    </div>
+  <% end %>
+<%# end %>
