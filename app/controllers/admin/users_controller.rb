@@ -33,12 +33,8 @@ class Admin::UsersController < ApplicationController
   end
 
   def destroy
-    if @user.role == :admin
-      redirect_to admin_users_path, alert: "Users with the admin role cannot be deleted"
-    else
-      @user.destroy
-      redirect_to admin_users_path, notice: "The user has been successfully deleted"
-    end
+    @user.destroy
+    redirect_to admin_users_path, notice: "The user has been successfully deleted"
   end
 
   private

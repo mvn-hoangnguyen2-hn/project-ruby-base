@@ -10,7 +10,7 @@ class User < ApplicationRecord
     role == "admin"
   end
 
-  has_many :cars
+  has_many :cars, dependent: :destroy
   accepts_nested_attributes_for :cars, allow_destroy: true
 
   validate :validate_car_limit
