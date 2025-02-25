@@ -8,12 +8,12 @@ class Admin::CarsController < ApplicationController
   def approve
     @car = Car.find(params[:id])
     @car.update(status: :approved)
-    redirect_to cars_for_user, notice: "Car approved"
+    redirect_to admin_cars_for_user_path(@car.user.id), notice: "Car approved"
   end
 
   def reject
     @car = Car.find(params[:id])
     @car.update(status: :rejected)
-    redirect_to cars_for_user, notice: "Car rejected"
+    redirect_to admin_cars_for_user_path(@car.user.id), notice: "Car rejected"
   end
 end
